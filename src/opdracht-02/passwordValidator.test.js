@@ -12,7 +12,7 @@ describe('Password Validator', () => {
   test('te kort wachtwoord geeft error', () => {
     // TODO: Test of 'Test1' invalid is
     // Hint: check of isValid false is
-    expect(true).toBe(false); // Deze test faalt! Vervang met je eigen test
+    expect(true).toBe(false); 
   });
 
   test('wachtwoord zonder nummer geeft error', () => {
