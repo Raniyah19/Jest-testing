@@ -8,11 +8,33 @@
 import { useState } from 'react';
 
 function WorkoutForm({ onSubmit }) {
+  const [title, setTitle] = useState('');
+    const [reps,  setReps] = useState('');
+  const [load, setLoad] = useState('');
+  const [error, setError] = useState('');
+
   // TODO: Maak state voor title, reps, load
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    if (title.trim() === '') {
+      setError('Title is required');
+      return;
+    }
+
+    const workout = {
+      title: title, 
+      reps: Number(reps),
+      load: Number(load)
+    };
+
+    onSubmit(workout);
+    setTitle('');
+    setReps('');
+    setLoad('');
+    setError('');
+
     // TODO: Validatie - check of title niet leeg is
     // Als title leeg: setError('Title is required') en stop
     
@@ -29,6 +51,30 @@ function WorkoutForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
+        <input
+        type="text"
+        placeholder="Exercise title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+
+      <input
+        type="number"
+        placeholder="Reps"
+        value={reps}
+        onChange={(e) => setReps(e.target.value)}
+      />
+
+      <input
+        type="number"
+        placeholder="Load"
+        value={load}
+        onChange={(e) => setLoad(e.target.value)}
+      />
+
+      <button type="submit">Add Workout</button>
+
+      {error && <p>{error}</p>}
       {/* TODO: Title input */}
       {/* <input 
         type="text"
