@@ -9,19 +9,27 @@ describe('Todo Utils', () => {
   });
 
   test('isValidTodo geeft false voor lege string', () => {
-    const result = isValidTodo('');
+     const result = isValidTodo("");
+    expect(result).toBe(false);
     // TODO: Test of '' invalid is
-     expect(true).toBe(false); // Deze test faalt! Vervang deze regel met je eigen test
+    // Deze test faalt! Vervang deze regel met je eigen test
   });
 3
   test('getTodoPriority geeft high voor urgent', () => {
+     const result = getTodoPriority("urgent bellen");
+    expect(result).toBe("high");
     // TODO: Test of 'urgent bellen' priority 'high' krijgt
-    expect(true).toBe(false); // Deze test faalt! Vervang deze regel met je eigen test
+   // Deze test faalt! Vervang deze regel met je eigen test
   });
 
   test('getTodoPriority geeft low voor normale todo', () => {
+    const result = getTodoPriority("koffie drinken");
+    expect(result).toBe("low");
     // TODO: Test of 'koffie drinken' priority 'low' krijgt
-    expect(true).toBe(false); // Deze test faalt! Vervang deze regel met je eigen test
+    // Deze test faalt! Vervang deze regel met je eigen test
   });
 
 });
+
+
+
